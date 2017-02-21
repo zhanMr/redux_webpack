@@ -13,3 +13,7 @@ function tests(){
 store.subscribe(tests);
 store.dispatch(action.addTodo([1]));
 ReactDom.render(<Provider store={store}><Order/></Provider>,document.getElementById('box'));
+$('body').css('background-color': 'yellow');
+_.map([1,2,3], item => {
+    console.log(item);
+})

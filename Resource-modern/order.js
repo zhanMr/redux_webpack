@@ -6,7 +6,7 @@ import reducer from './reducer';
 const store = createStore(reducer);
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-
+const style = require('./style.css');
 
 class Other extends React.Component{
     add(){
@@ -46,7 +46,7 @@ class Order extends React.Component{
                 <p><input type="text" value={text} onChange={this.changeText.bind(this)}/><button onClick={this.addText.bind(this)}>提交</button></p>
                 {data.text.map((item, key) => {
                     return(
-                        <div key={key}>{item}</div>
+                        <div key={key} className={style.text}>{item}</div>
                     )
                 })}
                 <Other {...this.props} {...boundActionCreators}/>

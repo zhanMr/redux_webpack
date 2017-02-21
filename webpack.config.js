@@ -5,18 +5,23 @@ const webpack = require('webpack');
 module.exports = {
     entry: {
         app: './Resource-modern/entry.js',
-        vendor: ['react', 'react-dom', 'redux', 'react-redux']
+        vendor: ['react', 'react-dom', 'redux', 'react-redux', 'jquery', 'lodash']
     },
     output: {
         path: __dirname,
         filename: "./Resource/[name].js"
     },
     plugins: [
-        new webpack.optimize.CommonsChunkPlugin('libs')
+        new webpack.optimize.CommonsChunkPlugin('libs'),
+        new webpack.ProvidePlugin({
+            $: 'jquery',
+            _: 'lodash'
+        })
     ],
     module: {
         loaders: [
-            { test: /\.js$/, exclude: /node_modules/, loader: "babel-loader" }
+            { test: /\.js$/, exclude: /node_modules/, loader: "babel-loader" },
+            { test: /\.css$/, loader: "style-loader!css-loader?modules" }
         ]
     }
 };
