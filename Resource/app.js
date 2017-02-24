@@ -89,7 +89,7 @@ var Other = function (_React$Component) {
                 data = _props.data,
                 dispatch = _props.dispatch;
 
-            data.text.push('xxx');
+            data.text.push('xxxx');
             this.props.addTodo(data.text);
         }
     }, {

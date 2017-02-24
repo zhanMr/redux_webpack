@@ -11,7 +11,7 @@ const style = require('./style.css');
 class Other extends React.Component{
     add(){
         let {data, dispatch} = this.props;
-        data.text.push('xxx');
+        data.text.push('xxxx');
         this.props.addTodo(data.text);
     }
     render(){
