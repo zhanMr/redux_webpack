@@ -1,6 +1,63 @@
-webpackJsonp([0],{
+webpackJsonp([1],{
 
-/***/ 106:
+/***/ 135:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+exports.default = { "Data": {
+		"HotelList": [{
+			"Address": "上海浦东",
+			"HotelId": 111,
+			"ImageInfo": {
+				"Name": "",
+				"UrlList": []
+			},
+			"HotelName": "上海浦东-测试酒店名称",
+			"TScore": 4.3,
+			"CommentTotalNumber": 54
+		}, {
+			"Address": "北京北海",
+			"HotelId": 111,
+			"ImageInfo": {
+				"Name": "",
+				"UrlList": []
+			},
+			"HotelName": "北京北海-测试酒店名称",
+			"TScore": 4.3,
+			"CommentTotalNumber": 54
+		}, {
+			"Address": "上海浦东",
+			"HotelId": 111,
+			"ImageInfo": {
+				"Name": "",
+				"UrlList": []
+			},
+			"HotelName": "上海浦东-测试酒店名称",
+			"TScore": 4.3,
+			"CommentTotalNumber": 54
+		}, {
+			"Address": "北京北海",
+			"HotelId": 111,
+			"ImageInfo": {
+				"Name": "",
+				"UrlList": []
+			},
+			"HotelName": "北京北海-测试酒店名称",
+			"TScore": 4.3,
+			"CommentTotalNumber": 54
+		}]
+
+	}
+};
+
+/***/ }),
+
+/***/ 136:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -25,7 +82,7 @@ exports.default = function (_ref) {
 
 /***/ }),
 
-/***/ 107:
+/***/ 137:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -39,25 +96,25 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__(15);
+var _react = __webpack_require__(4);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactDom = __webpack_require__(29);
+var _reactDom = __webpack_require__(37);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
-var _action = __webpack_require__(64);
+var _action = __webpack_require__(82);
 
 var action = _interopRequireWildcard(_action);
 
-var _redux = __webpack_require__(20);
+var _redux = __webpack_require__(24);
 
-var _reducer = __webpack_require__(65);
+var _reducer = __webpack_require__(83);
 
 var _reducer2 = _interopRequireDefault(_reducer);
 
-var _reactRedux = __webpack_require__(30);
+var _reactRedux = __webpack_require__(38);
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
@@ -71,7 +128,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 var store = (0, _redux.createStore)(_reducer2.default);
 
-var style = __webpack_require__(242);
+var style = __webpack_require__(299);
 
 var Other = function (_React$Component) {
     _inherits(Other, _React$Component);
@@ -183,10 +240,10 @@ exports.default = (0, _reactRedux.connect)(select)(Order);
 
 /***/ }),
 
-/***/ 110:
+/***/ 141:
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(111)();
+exports = module.exports = __webpack_require__(142)();
 // imports
 
 
@@ -200,7 +257,7 @@ exports.locals = {
 
 /***/ }),
 
-/***/ 111:
+/***/ 142:
 /***/ (function(module, exports) {
 
 /*
@@ -257,7 +314,7 @@ module.exports = function() {
 
 /***/ }),
 
-/***/ 241:
+/***/ 298:
 /***/ (function(module, exports) {
 
 /*
@@ -510,16 +567,16 @@ function updateLink(linkElement, obj) {
 
 /***/ }),
 
-/***/ 242:
+/***/ 299:
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(110);
+var content = __webpack_require__(141);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // add the styles to the DOM
-var update = __webpack_require__(241)(content, {});
+var update = __webpack_require__(298)(content, {});
 if(content.locals) module.exports = content.locals;
 // Hot Module Replacement
 if(false) {
@@ -537,51 +594,61 @@ if(false) {
 
 /***/ }),
 
-/***/ 243:
+/***/ 300:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(_) {
 
-var _react = __webpack_require__(15);
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(4);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactDom = __webpack_require__(29);
+var _reactDom = __webpack_require__(37);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
-var _action = __webpack_require__(64);
+var _action = __webpack_require__(82);
 
 var action = _interopRequireWildcard(_action);
 
-var _redux = __webpack_require__(20);
+var _redux = __webpack_require__(24);
 
-var _reducer = __webpack_require__(65);
+var _reducer = __webpack_require__(83);
 
 var _reducer2 = _interopRequireDefault(_reducer);
 
-var _reactRedux = __webpack_require__(30);
+var _reactRedux = __webpack_require__(38);
 
-var _order = __webpack_require__(107);
+var _order = __webpack_require__(137);
 
 var _order2 = _interopRequireDefault(_order);
 
-var _log = __webpack_require__(106);
+var _log = __webpack_require__(136);
 
 var _log2 = _interopRequireDefault(_log);
 
-var _angular = __webpack_require__(39);
+var _angular = __webpack_require__(49);
 
 var _angular2 = _interopRequireDefault(_angular);
 
-var _hotel = __webpack_require__(245);
+var _hotel = __webpack_require__(135);
 
 var _hotel2 = _interopRequireDefault(_hotel);
+
+var _reactRouter = __webpack_require__(139);
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 var createStoreWithLog = (0, _redux.applyMiddleware)(_log2.default)(_redux.createStore);
 var store = createStoreWithLog(_reducer2.default);
@@ -602,6 +669,162 @@ if (document.getElementById('box')) {
   });
 }
 
+//===========react-router=============================================================================================================================================================================
+if (document.getElementById('react-router')) {
+  var One = function (_React$Component) {
+    _inherits(One, _React$Component);
+
+    function One() {
+      _classCallCheck(this, One);
+
+      return _possibleConstructorReturn(this, (One.__proto__ || Object.getPrototypeOf(One)).apply(this, arguments));
+    }
+
+    _createClass(One, [{
+      key: 'componentDidMount',
+      value: function componentDidMount() {
+        this.props.router.setRouteLeaveHook(this.props.route, this.routerWillLeave);
+      }
+    }, {
+      key: 'routerWillLeave',
+      value: function routerWillLeave() {
+        return 'Are you sure??xx';
+      }
+    }, {
+      key: 'render',
+      value: function render() {
+        //redux_webpack/react-router.html#/
+        return _react2.default.createElement(
+          'div',
+          null,
+          _react2.default.createElement(
+            'h1',
+            null,
+            '\u9996\u9875'
+          ),
+          this.props.children,
+          _react2.default.createElement(
+            'p',
+            null,
+            _react2.default.createElement(
+              _reactRouter.IndexLink,
+              { to: '/message' },
+              '\u6587\u7AE01'
+            )
+          ),
+          _react2.default.createElement(
+            'p',
+            null,
+            _react2.default.createElement(
+              _reactRouter.Link,
+              { to: '/message' },
+              '\u6587\u7AE02'
+            )
+          )
+        );
+      }
+    }]);
+
+    return One;
+  }(_react2.default.Component);
+
+  ;
+
+  var Two = function (_React$Component2) {
+    _inherits(Two, _React$Component2);
+
+    function Two() {
+      _classCallCheck(this, Two);
+
+      return _possibleConstructorReturn(this, (Two.__proto__ || Object.getPrototypeOf(Two)).apply(this, arguments));
+    }
+
+    _createClass(Two, [{
+      key: 'render',
+      value: function render() {
+        //redux_webpack/react-router.html#/two
+        return _react2.default.createElement(
+          'div',
+          null,
+          '\u8FD9\u662F\u4E00\u6BB5\u5185\u5BB9'
+        );
+      }
+    }]);
+
+    return Two;
+  }(_react2.default.Component);
+
+  ;
+
+  var Home = function (_React$Component3) {
+    _inherits(Home, _React$Component3);
+
+    function Home() {
+      _classCallCheck(this, Home);
+
+      return _possibleConstructorReturn(this, (Home.__proto__ || Object.getPrototypeOf(Home)).apply(this, arguments));
+    }
+
+    _createClass(Home, [{
+      key: 'render',
+      value: function render() {
+        return _react2.default.createElement(
+          'div',
+          null,
+          '\u8FD9\u6BB5\u8BDD\u9996\u9875\u76F4\u63A5\u80FD\u770B\u5230\u4E86'
+        );
+      }
+    }]);
+
+    return Home;
+  }(_react2.default.Component);
+
+  var Message = function (_React$Component4) {
+    _inherits(Message, _React$Component4);
+
+    function Message() {
+      _classCallCheck(this, Message);
+
+      return _possibleConstructorReturn(this, (Message.__proto__ || Object.getPrototypeOf(Message)).apply(this, arguments));
+    }
+
+    _createClass(Message, [{
+      key: 'render',
+      value: function render() {
+        return _react2.default.createElement(
+          'div',
+          null,
+          _react2.default.createElement(
+            'p',
+            null,
+            '\u8FD9\u662F\u4E00\u7BC7\u6587\u7AE0\u554A'
+          ),
+          _react2.default.createElement(
+            _reactRouter.Link,
+            { to: '/', activeStyle: { color: 'red' }, className: 'link' },
+            'Home'
+          )
+        );
+      }
+    }]);
+
+    return Message;
+  }(_react2.default.Component);
+
+  _reactDom2.default.render(_react2.default.createElement(
+    _reactRouter.Router,
+    { history: _reactRouter.hashHistory },
+    _react2.default.createElement(
+      _reactRouter.Route,
+      { path: '/', component: One },
+      _react2.default.createElement(_reactRouter.IndexRoute, { component: Home }),
+      _react2.default.createElement(_reactRouter.Route, { path: 'two', component: Two }),
+      _react2.default.createElement(_reactRouter.Redirect, { from: 'three', to: 'two' }),
+      '//\u8BBF\u95EEthree\u8DF3\u8F6C\u5230two'
+    ),
+    _react2.default.createElement(_reactRouter.Route, { path: '/message', component: Message })
+  ), document.getElementById('react-router'));
+}
 //===========angluar=============================================================================================================================================================================
 if (document.getElementById('angular')) {
   document.getElementById('angular').innerHTML = '\n      <div ng-app="app">\n          <div class="body nofoot hotels_mod" ng-controller="hotel"><div hotel></div></div>\n        </div>\n  ';
@@ -659,68 +882,11 @@ if (document.getElementById('angular')) {
     $scope.hotel = _hotel2.default.Data;
   });
 }
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(28)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(36)))
 
 /***/ }),
 
-/***/ 245:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-	value: true
-});
-exports.default = { "Data": {
-		"HotelList": [{
-			"Address": "上海浦东",
-			"HotelId": 111,
-			"ImageInfo": {
-				"Name": "",
-				"UrlList": []
-			},
-			"HotelName": "上海浦东-测试酒店名称",
-			"TScore": 4.3,
-			"CommentTotalNumber": 54
-		}, {
-			"Address": "北京北海",
-			"HotelId": 111,
-			"ImageInfo": {
-				"Name": "",
-				"UrlList": []
-			},
-			"HotelName": "北京北海-测试酒店名称",
-			"TScore": 4.3,
-			"CommentTotalNumber": 54
-		}, {
-			"Address": "上海浦东",
-			"HotelId": 111,
-			"ImageInfo": {
-				"Name": "",
-				"UrlList": []
-			},
-			"HotelName": "上海浦东-测试酒店名称",
-			"TScore": 4.3,
-			"CommentTotalNumber": 54
-		}, {
-			"Address": "北京北海",
-			"HotelId": 111,
-			"ImageInfo": {
-				"Name": "",
-				"UrlList": []
-			},
-			"HotelName": "北京北海-测试酒店名称",
-			"TScore": 4.3,
-			"CommentTotalNumber": 54
-		}]
-
-	}
-};
-
-/***/ }),
-
-/***/ 64:
+/***/ 82:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -741,7 +907,7 @@ function addTodo(text) {
 
 /***/ }),
 
-/***/ 65:
+/***/ 83:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -751,7 +917,7 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _redux = __webpack_require__(20);
+var _redux = __webpack_require__(24);
 
 function addTodo() {
     var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
@@ -773,4 +939,4 @@ exports.default = todoApp;
 
 /***/ })
 
-},[243]);
+},[300]);

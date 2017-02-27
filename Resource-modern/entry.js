@@ -8,6 +8,7 @@ import Order from './order';
 import log from './log';
 import angular from 'angular';
 import hotel from './hotel';
+import {Router, Route, hashHistory, browserHistory, IndexRoute, Redirect, IndexRedirect, Link, IndexLink} from 'react-router';
 let createStoreWithLog = applyMiddleware(log)(createStore);
 const store = createStoreWithLog(reducer);
 function tests(){
@@ -24,7 +25,67 @@ if(document.getElementById('box')) {
   })
 }
 
-
+//===========react-router=============================================================================================================================================================================
+if(document.getElementById('react-router')){
+  class One extends React.Component{
+    componentDidMount(){
+      this.props.router.setRouteLeaveHook(
+        this.props.route,
+        this.routerWillLeave
+      )
+    }
+    routerWillLeave(){
+      return 'Are you sure??xx';
+    }
+    render(){
+      //redux_webpack/react-router.html#/
+      return (
+        <div>
+          <h1>首页</h1>
+          {this.props.children}
+          <p><IndexLink to="/message">文章1</IndexLink></p>
+          <p><Link to="/message">文章2</Link></p>
+        </div>
+      )
+    }
+  };
+  class Two extends React.Component{
+    render(){
+      //redux_webpack/react-router.html#/two
+      return (
+        <div>这是一段内容</div>
+      )
+    }
+  };
+  class Home extends React.Component{
+    render(){
+      return (
+        <div>这段话首页直接能看到了</div>
+      )
+    }
+  }
+  class Message extends React.Component{
+    render(){
+      return (
+        <div>
+            <p>这是一篇文章啊</p>
+            <Link to="/" activeStyle={{color: 'red'}} className="link">Home</Link>
+        </div>
+      )
+    }
+  }
+  ReactDom.render((
+    <Router history={hashHistory}>
+      <Route path="/" component={One}>
+        {/* <IndexRedirect to='two'/> */}
+        <IndexRoute component={Home}></IndexRoute>
+        <Route path="two" component={Two}></Route>
+        <Redirect from="three" to="two"></Redirect>//访问three跳转到two
+      </Route>
+      <Route path="/message"  component={Message}></Route>
+    </Router>
+  ), document.getElementById('react-router'));
+}
 //===========angluar=============================================================================================================================================================================
 if(document.getElementById('angular')){
   document.getElementById('angular').innerHTML = `
