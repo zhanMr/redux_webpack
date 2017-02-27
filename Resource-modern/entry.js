@@ -76,14 +76,12 @@ if(document.getElementById('react-router')){
     }
   }
   const routerConfig = [
-    {
-      path: '/',
-      component: One,
-      indexRoute: { component: Home },
-      childrenRoutes: [
-        {path: 'two', component: Message}
-      ]
-    }
+      {
+        path: '/',
+        component: One,
+        indexRoute: { component: Home },
+        childRoutes: [{ path: 'two', component: Two }]
+      }
   ];
   // ReactDom.render((
   //   <Router history={hashHistory}>

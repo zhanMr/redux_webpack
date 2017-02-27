@@ -816,7 +816,7 @@ if (document.getElementById('react-router')) {
     path: '/',
     component: One,
     indexRoute: { component: Home },
-    childrenRoutes: [{ path: 'two', component: Message }]
+    childRoutes: [{ path: 'two', component: Two }]
   }];
   // ReactDom.render((
   //   <Router history={hashHistory}>
