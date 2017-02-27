@@ -717,7 +717,7 @@ if (document.getElementById('react-router')) {
             null,
             _react2.default.createElement(
               _reactRouter.Link,
-              { to: '/message' },
+              { to: '/message?id=1' },
               '\u6587\u7AE02'
             )
           )
@@ -799,6 +799,7 @@ if (document.getElementById('react-router')) {
             null,
             '\u8FD9\u662F\u4E00\u7BC7\u6587\u7AE0\u554A'
           ),
+          this.props.children,
           _react2.default.createElement(
             _reactRouter.Link,
             { to: '/', activeStyle: { color: 'red' }, className: 'link' },
@@ -811,19 +812,24 @@ if (document.getElementById('react-router')) {
     return Message;
   }(_react2.default.Component);
 
-  _reactDom2.default.render(_react2.default.createElement(
-    _reactRouter.Router,
-    { history: _reactRouter.hashHistory },
-    _react2.default.createElement(
-      _reactRouter.Route,
-      { path: '/', component: One },
-      _react2.default.createElement(_reactRouter.IndexRoute, { component: Home }),
-      _react2.default.createElement(_reactRouter.Route, { path: 'two', component: Two }),
-      _react2.default.createElement(_reactRouter.Redirect, { from: 'three', to: 'two' }),
-      '//\u8BBF\u95EEthree\u8DF3\u8F6C\u5230two'
-    ),
-    _react2.default.createElement(_reactRouter.Route, { path: '/message', component: Message })
-  ), document.getElementById('react-router'));
+  var routerConfig = [{
+    path: '/',
+    component: One,
+    indexRoute: { component: Home },
+    childrenRoutes: [{ path: 'two', component: Message }]
+  }];
+  // ReactDom.render((
+  //   <Router history={hashHistory}>
+  //     <Route path="/" component={One}>
+  //       {/* <IndexRedirect to='two'/> */}
+  //       <IndexRoute component={Home}></IndexRoute>
+  //       <Route path="two" component={Two}></Route>
+  //       <Redirect from="three" to="two"></Redirect>//访问three跳转到two
+  //     </Route>
+  //     <Route path="/message*"  component={Message}></Route>
+  //   </Router>
+  // ), document.getElementById('react-router'));
+  _reactDom2.default.render(_react2.default.createElement(_reactRouter.Router, { history: _reactRouter.hashHistory, routes: routerConfig }), document.getElementById('react-router'));
 }
 //===========angluar=============================================================================================================================================================================
 if (document.getElementById('angular')) {

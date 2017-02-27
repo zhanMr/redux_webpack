@@ -44,7 +44,7 @@ if(document.getElementById('react-router')){
           <h1>首页</h1>
           {this.props.children}
           <p><IndexLink to="/message">文章1</IndexLink></p>
-          <p><Link to="/message">文章2</Link></p>
+          <p><Link to="/message?id=1">文章2</Link></p>
         </div>
       )
     }
@@ -69,21 +69,35 @@ if(document.getElementById('react-router')){
       return (
         <div>
             <p>这是一篇文章啊</p>
+            {this.props.children}
             <Link to="/" activeStyle={{color: 'red'}} className="link">Home</Link>
         </div>
       )
     }
   }
+  const routerConfig = [
+    {
+      path: '/',
+      component: One,
+      indexRoute: { component: Home },
+      childrenRoutes: [
+        {path: 'two', component: Message}
+      ]
+    }
+  ];
+  // ReactDom.render((
+  //   <Router history={hashHistory}>
+  //     <Route path="/" component={One}>
+  //       {/* <IndexRedirect to='two'/> */}
+  //       <IndexRoute component={Home}></IndexRoute>
+  //       <Route path="two" component={Two}></Route>
+  //       <Redirect from="three" to="two"></Redirect>//访问three跳转到two
+  //     </Route>
+  //     <Route path="/message*"  component={Message}></Route>
+  //   </Router>
+  // ), document.getElementById('react-router'));
   ReactDom.render((
-    <Router history={hashHistory}>
-      <Route path="/" component={One}>
-        {/* <IndexRedirect to='two'/> */}
-        <IndexRoute component={Home}></IndexRoute>
-        <Route path="two" component={Two}></Route>
-        <Redirect from="three" to="two"></Redirect>//访问three跳转到two
-      </Route>
-      <Route path="/message"  component={Message}></Route>
-    </Router>
+    <Router history={hashHistory} routes={routerConfig}></Router>
   ), document.getElementById('react-router'));
 }
 //===========angluar=============================================================================================================================================================================
