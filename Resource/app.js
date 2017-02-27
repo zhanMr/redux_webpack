@@ -71,7 +71,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 var store = (0, _redux.createStore)(_reducer2.default);
 
-var style = __webpack_require__(240);
+var style = __webpack_require__(242);
 
 var Other = function (_React$Component) {
     _inherits(Other, _React$Component);
@@ -183,10 +183,10 @@ exports.default = (0, _reactRedux.connect)(select)(Order);
 
 /***/ }),
 
-/***/ 108:
+/***/ 110:
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(109)();
+exports = module.exports = __webpack_require__(111)();
 // imports
 
 
@@ -200,7 +200,7 @@ exports.locals = {
 
 /***/ }),
 
-/***/ 109:
+/***/ 111:
 /***/ (function(module, exports) {
 
 /*
@@ -257,7 +257,7 @@ module.exports = function() {
 
 /***/ }),
 
-/***/ 239:
+/***/ 241:
 /***/ (function(module, exports) {
 
 /*
@@ -510,16 +510,16 @@ function updateLink(linkElement, obj) {
 
 /***/ }),
 
-/***/ 240:
+/***/ 242:
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(108);
+var content = __webpack_require__(110);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // add the styles to the DOM
-var update = __webpack_require__(239)(content, {});
+var update = __webpack_require__(241)(content, {});
 if(content.locals) module.exports = content.locals;
 // Hot Module Replacement
 if(false) {
@@ -537,11 +537,11 @@ if(false) {
 
 /***/ }),
 
-/***/ 241:
+/***/ 243:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function($, _) {
+/* WEBPACK VAR INJECTION */(function(_) {
 
 var _react = __webpack_require__(15);
 
@@ -571,6 +571,14 @@ var _log = __webpack_require__(106);
 
 var _log2 = _interopRequireDefault(_log);
 
+var _angular = __webpack_require__(39);
+
+var _angular2 = _interopRequireDefault(_angular);
+
+var _hotel = __webpack_require__(245);
+
+var _hotel2 = _interopRequireDefault(_hotel);
+
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -578,18 +586,137 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var createStoreWithLog = (0, _redux.applyMiddleware)(_log2.default)(_redux.createStore);
 var store = createStoreWithLog(_reducer2.default);
 function tests() {}
-store.subscribe(tests);
-store.dispatch(action.addTodo([1]));
-_reactDom2.default.render(_react2.default.createElement(
+
+//===========react redux=============================================================================================================================================================================
+
+if (document.getElementById('box')) {
+  store.subscribe(tests);
+  store.dispatch(action.addTodo([1]));
+  _reactDom2.default.render(_react2.default.createElement(
     _reactRedux.Provider,
     { store: store },
     _react2.default.createElement(_order2.default, null)
-), document.getElementById('box'));
-$('body').css('background-color');
-_.map([1, 2, 3], function (item) {
+  ), document.getElementById('box'));
+  _.map([1, 2, 3], function (item) {
     console.log(item);
+  });
+}
+
+//===========angluar=============================================================================================================================================================================
+if (document.getElementById('angular')) {
+  document.getElementById('angular').innerHTML = '\n      <div ng-app="app">\n          <div class="body nofoot hotels_mod" ng-controller="hotel"><div hotel></div></div>\n        </div>\n  ';
+  _hotel2.default.Data.ShowAllHotel = true;
+  _hotel2.default.Data.HotelList.forEach(function (item, index) {
+    item.Status = index <= 5;
+    console.log(item.Status);
+  });
+  var app = _angular2.default.module('app', []);
+  app.directive('hotel', function () {
+    return {
+      template: '\n              <div class="hotels_box">\n                <div>\n                  <div class="hotel" ng-repeat="item in hotel.HotelList | orderBy: \'HotelId\'" ng-show="item.Status" ng-click="all()" ng-class-even="{\'box2\': true}">\n                      <div class="hotels_base_info" data-id={{item.HotelId}}>\n                          <h3>{{$index + 1}}.{{item.HotelName}}<span ng-bind="showImage(item)"></span></h3>\n                          <divng-click="test($event)">\n                            <img ng-if="showImage(item)" src={{item.ImageInfo.UrlList[0].Value}} />\n                            <img ng-if="!showImage(item)" src=\'\' alt="\u6682\u65E0\u56FE\u7247"/>\n                          </div>\n                          <div>\n                            <p><span><i>{{item.TScore}}</i></span>\u5206</p><p><span>{{item.CommentTotalNumber}}</span>\u4EBA\u70B9\u8BC4</p>\n                          </div>\n                          <div class="hotels_desc"><p>\u9AD8\u6863\u578B\u9152\u5E97</p>\u5A01\u57FA\u57FA</div>\n                      </div>\n                  </div>\n                  <div ng-if="hotel.HotelList.length > 10" ng-show ="hotel.ShowAllHotel"  ng-click="showAllHotel()"><span class="show_more_btn">\u5C55\u5F00\u66F4\u591A\u9152\u5E97</span></div>\n                </div>\n              </div>\n              <div ng-controller="test"><span id="span" ng-click="changeText()">{{username}}</span> {{hex}}</div>\n          '
+    };
+  });
+  app.factory('Data', function () {
+    return {
+      name: ''
+    };
+  });
+  app.service('$my', function () {
+    this.my = function (arr) {
+      return arr.join('、');
+    };
+  });
+  app.controller('test', function ($scope, $timeout, $my, Data) {
+    $timeout(function () {
+      console.log('xxx');
+      $scope.username = 'who are you';
+      $scope.hex = $my.my([1, 2, 3]);
+    }, 1000);
+    $scope.changeText = function () {
+      $scope.username = "I'm JACK";
+      Data.name = $scope.username;
+    };
+  });
+  app.controller('hotel', function ($scope, Data) {
+    $scope.showImage = function (item) {
+      return item.ImageInfo.UrlList && item.ImageInfo.UrlList.length > 0;
+    };
+    $scope.showAllHotel = function () {
+      $scope.hotel.HotelList.forEach(function (item) {
+        item.Status = true;
+      });
+      $scope.hotel.ShowAllHotel = false;
+    };
+    $scope.test = function ($event) {
+      $event.stopPropagation();
+      console.log('点击了图片');
+      console.log($scope.username);
+      console.log(Data.name);
+    };
+    $scope.all = function () {
+      console.log('点击了整体');
+    };
+    $scope.hotel = _hotel2.default.Data;
+  });
+}
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(28)))
+
+/***/ }),
+
+/***/ 245:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
 });
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(39), __webpack_require__(28)))
+exports.default = { "Data": {
+		"HotelList": [{
+			"Address": "上海浦东",
+			"HotelId": 111,
+			"ImageInfo": {
+				"Name": "",
+				"UrlList": []
+			},
+			"HotelName": "上海浦东-测试酒店名称",
+			"TScore": 4.3,
+			"CommentTotalNumber": 54
+		}, {
+			"Address": "北京北海",
+			"HotelId": 111,
+			"ImageInfo": {
+				"Name": "",
+				"UrlList": []
+			},
+			"HotelName": "北京北海-测试酒店名称",
+			"TScore": 4.3,
+			"CommentTotalNumber": 54
+		}, {
+			"Address": "上海浦东",
+			"HotelId": 111,
+			"ImageInfo": {
+				"Name": "",
+				"UrlList": []
+			},
+			"HotelName": "上海浦东-测试酒店名称",
+			"TScore": 4.3,
+			"CommentTotalNumber": 54
+		}, {
+			"Address": "北京北海",
+			"HotelId": 111,
+			"ImageInfo": {
+				"Name": "",
+				"UrlList": []
+			},
+			"HotelName": "北京北海-测试酒店名称",
+			"TScore": 4.3,
+			"CommentTotalNumber": 54
+		}]
+
+	}
+};
 
 /***/ }),
 
@@ -646,4 +773,4 @@ exports.default = todoApp;
 
 /***/ })
 
-},[241]);
+},[243]);

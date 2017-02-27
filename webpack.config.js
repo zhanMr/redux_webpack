@@ -6,7 +6,7 @@ module.exports = {
     //devtool: '#eval-source-map',
     entry: {
         app: './Resource-modern/entry.js',
-        vendor: ['react', 'react-dom', 'redux', 'react-redux', 'jquery', 'lodash']
+        vendor: ['react', 'react-dom', 'redux', 'react-redux', 'jquery', 'lodash', 'angular']
     },
     output: {
         path: __dirname,
