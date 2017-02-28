@@ -9,6 +9,7 @@ import log from './log';
 import angular from 'angular';
 import hotel from './hotel';
 import {Router, Route, hashHistory, browserHistory, IndexRoute, Redirect, IndexRedirect, Link, IndexLink} from 'react-router';
+import {ngRoute} from 'angular-route';
 let createStoreWithLog = applyMiddleware(log)(createStore);
 const store = createStoreWithLog(reducer);
 function tests(){
@@ -43,7 +44,7 @@ if(document.getElementById('react-router')){
         <div>
           <h1>首页</h1>
           {this.props.children}
-          <p><IndexLink to="/message">文章1</IndexLink></p>
+          <p><IndexLink to="/two">文章1</IndexLink></p>
           <p><Link to="/message?id=1">文章2</Link></p>
         </div>
       )
@@ -53,7 +54,7 @@ if(document.getElementById('react-router')){
     render(){
       //redux_webpack/react-router.html#/two
       return (
-        <div>这是一段内容</div>
+          <div>这是一段内容</div>
       )
     }
   };
@@ -75,13 +76,20 @@ if(document.getElementById('react-router')){
       )
     }
   }
+  function requireAuth(nextState, replaceState){
+    console.log('哈哈哈');
+    console.log(nextState);
+    console.log(replaceState);
+  }
   const routerConfig = [
-      {
-        path: '/',
-        component: One,
-        indexRoute: { component: Home },
-        childRoutes: [{ path: 'two', component: Two }]
-      }
+    {
+      path: '/',
+      component: One,
+      indexRoute: { component: Home },
+      childRoutes: [
+        {path: 'two', component: Message, onEnter: requireAuth}
+      ]
+    }
   ];
   // ReactDom.render((
   //   <Router history={hashHistory}>
@@ -178,4 +186,27 @@ if(document.getElementById('angular')){
       }
       $scope.hotel = hotel.Data;
   });
+}
+//===========angular-route=============================================================================================================================================================================
+if(document.getElementById('angular-route')){
+  document.getElementById('angular-route').innerHTML = `
+      <div ng-app="appRouter">
+          <ul>
+            <li><a href="#/">首页!</a></li>
+            <li><a href="#/computers">电脑</a></li>
+            <li><a href="#/printers">打印机</a></li>
+            <li><a href="#/blabla">其他</a></li>
+          </ul>
+            <ng-view></ng-view>
+        </div>
+
+  `;
+    const app = angular.module('appRouter', ['ngRoute']);
+    app.config(['$routeProvider', function($routeProvider){
+        $routeProvider
+        .when('/', {template: '首页'})
+        .when('/computers', {template: '电脑'})
+        .when('/printers', {template: '打印机'})
+        .otherwise({redirectTo: '/'});
+    }])
 }

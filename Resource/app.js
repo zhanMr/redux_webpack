@@ -1,6 +1,6 @@
-webpackJsonp([1],{
+webpackJsonp([0],{
 
-/***/ 135:
+/***/ 137:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -57,7 +57,7 @@ exports.default = { "Data": {
 
 /***/ }),
 
-/***/ 136:
+/***/ 138:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -82,7 +82,7 @@ exports.default = function (_ref) {
 
 /***/ }),
 
-/***/ 137:
+/***/ 139:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -104,13 +104,13 @@ var _reactDom = __webpack_require__(37);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
-var _action = __webpack_require__(82);
+var _action = __webpack_require__(84);
 
 var action = _interopRequireWildcard(_action);
 
 var _redux = __webpack_require__(24);
 
-var _reducer = __webpack_require__(83);
+var _reducer = __webpack_require__(85);
 
 var _reducer2 = _interopRequireDefault(_reducer);
 
@@ -128,7 +128,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 var store = (0, _redux.createStore)(_reducer2.default);
 
-var style = __webpack_require__(299);
+var style = __webpack_require__(301);
 
 var Other = function (_React$Component) {
     _inherits(Other, _React$Component);
@@ -240,10 +240,10 @@ exports.default = (0, _reactRedux.connect)(select)(Order);
 
 /***/ }),
 
-/***/ 141:
+/***/ 143:
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(142)();
+exports = module.exports = __webpack_require__(144)();
 // imports
 
 
@@ -257,7 +257,7 @@ exports.locals = {
 
 /***/ }),
 
-/***/ 142:
+/***/ 144:
 /***/ (function(module, exports) {
 
 /*
@@ -314,7 +314,7 @@ module.exports = function() {
 
 /***/ }),
 
-/***/ 298:
+/***/ 300:
 /***/ (function(module, exports) {
 
 /*
@@ -567,16 +567,16 @@ function updateLink(linkElement, obj) {
 
 /***/ }),
 
-/***/ 299:
+/***/ 301:
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(141);
+var content = __webpack_require__(143);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // add the styles to the DOM
-var update = __webpack_require__(298)(content, {});
+var update = __webpack_require__(300)(content, {});
 if(content.locals) module.exports = content.locals;
 // Hot Module Replacement
 if(false) {
@@ -594,7 +594,7 @@ if(false) {
 
 /***/ }),
 
-/***/ 300:
+/***/ 302:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -610,35 +610,37 @@ var _reactDom = __webpack_require__(37);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
-var _action = __webpack_require__(82);
+var _action = __webpack_require__(84);
 
 var action = _interopRequireWildcard(_action);
 
 var _redux = __webpack_require__(24);
 
-var _reducer = __webpack_require__(83);
+var _reducer = __webpack_require__(85);
 
 var _reducer2 = _interopRequireDefault(_reducer);
 
 var _reactRedux = __webpack_require__(38);
 
-var _order = __webpack_require__(137);
+var _order = __webpack_require__(139);
 
 var _order2 = _interopRequireDefault(_order);
 
-var _log = __webpack_require__(136);
+var _log = __webpack_require__(138);
 
 var _log2 = _interopRequireDefault(_log);
 
-var _angular = __webpack_require__(49);
+var _angular = __webpack_require__(50);
 
 var _angular2 = _interopRequireDefault(_angular);
 
-var _hotel = __webpack_require__(135);
+var _hotel = __webpack_require__(137);
 
 var _hotel2 = _interopRequireDefault(_hotel);
 
-var _reactRouter = __webpack_require__(139);
+var _reactRouter = __webpack_require__(51);
+
+var _angularRoute = __webpack_require__(49);
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
@@ -671,6 +673,12 @@ if (document.getElementById('box')) {
 
 //===========react-router=============================================================================================================================================================================
 if (document.getElementById('react-router')) {
+  var requireAuth = function requireAuth(nextState, replaceState) {
+    console.log('哈哈哈');
+    console.log(nextState);
+    console.log(replaceState);
+  };
+
   var One = function (_React$Component) {
     _inherits(One, _React$Component);
 
@@ -708,7 +716,7 @@ if (document.getElementById('react-router')) {
             null,
             _react2.default.createElement(
               _reactRouter.IndexLink,
-              { to: '/message' },
+              { to: '/two' },
               '\u6587\u7AE01'
             )
           ),
@@ -816,7 +824,7 @@ if (document.getElementById('react-router')) {
     path: '/',
     component: One,
     indexRoute: { component: Home },
-    childRoutes: [{ path: 'two', component: Two }]
+    childRoutes: [{ path: 'two', component: Message, onEnter: requireAuth }]
   }];
   // ReactDom.render((
   //   <Router history={hashHistory}>
@@ -888,11 +896,19 @@ if (document.getElementById('angular')) {
     $scope.hotel = _hotel2.default.Data;
   });
 }
+//===========angular-route=============================================================================================================================================================================
+if (document.getElementById('angular-route')) {
+  document.getElementById('angular-route').innerHTML = '\n      <div ng-app="appRouter">\n          <ul>\n            <li><a href="#/">\u9996\u9875!</a></li>\n            <li><a href="#/computers">\u7535\u8111</a></li>\n            <li><a href="#/printers">\u6253\u5370\u673A</a></li>\n            <li><a href="#/blabla">\u5176\u4ED6</a></li>\n          </ul>\n            <ng-view></ng-view>\n        </div>\n\n  ';
+  var _app = _angular2.default.module('appRouter', ['ngRoute']);
+  _app.config(['$routeProvider', function ($routeProvider) {
+    $routeProvider.when('/', { template: '首页' }).when('/computers', { template: '电脑' }).when('/printers', { template: '打印机' }).otherwise({ redirectTo: '/' });
+  }]);
+}
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(36)))
 
 /***/ }),
 
-/***/ 82:
+/***/ 84:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -913,7 +929,7 @@ function addTodo(text) {
 
 /***/ }),
 
-/***/ 83:
+/***/ 85:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -945,4 +961,4 @@ exports.default = todoApp;
 
 /***/ })
 
-},[300]);
+},[302]);
